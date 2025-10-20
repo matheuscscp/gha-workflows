@@ -97,6 +97,8 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
       - uses: sigstore/cosign-installer@d7543c93d881b35a8faa02e8e3605f69b7a1ce62 # v3.10.0
+        with:
+          cosign-release: v2.6.1 # TODO: remove after Flux 2.8 with support for cosign v3
       - name: Sign images
         env:
           COSIGN_EXPERIMENTAL: 1
